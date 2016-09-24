@@ -41,16 +41,16 @@
                         <a href="#topic1">Version Control</a>
                     </li>
                     <li>
-                        <a href="#topic2">Hightlight #2</a>
+                        <a href="#topic2">Snapshot Model</a>
                     </li>
                     <li>
-                        <a href="#topic3">Hightlight #3</a>
+                        <a href="#topic3">Get Git Going</a>
                     </li>
                     <li>
-                        <a href="#topic4">Hightlight #4</a>
+                        <a href="#topic4">Tracking Files</a>
                     </li>
                     <li>
-                        <a href="#topic5">Hightlight #5</a>
+                        <a href="#topic5">File Stages</a>
                     </li>
                 </ul>
             </div>
@@ -96,39 +96,39 @@
                 <span class="text-muted"> - The Snapshot Model</span>
             </h2>
             <p class="lead">Git is a unique version control system in that it operates on a snapshot system. Most other version control systems store their information as a list of file-based changes, only updating the version of a file when there is a change to the file. Git doesn't quite handle its versions the same way.</p>
+            <p>Git manages the versions of controlled files a little more like sets of snapshots of those files. Upon a commit to your local repository or a push to the remote repository, Git essencially stores the state of the controlled files in the repo and associates them with that snapshot. Files which are not changed before commit are not copied to the new snapshot. Instead, for space efficiency, a reference to the previous snapshot's version of the file is included. Because this system of version control is so different than almost all other VCSs, the Git team was forced to rethink most aspects of version control and was unable to simply build upon previous versions.</p>
         </div>
 
         <hr class="featurette-divider">
 
         <!-- Third Featurette -->
         <div class="featurette" id="topic3">
-            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Highlight #3
-                <span class="text-muted">Topic 3 Header</span>
-            </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <img class="featurette-image img-circle img-responsive pull-right" src="images/banner.png">
+            <h2 class="featurette-heading">Getting Git Going</h2>
+            <p class="lead">The first step whjen getting to work in any software project will be to determine what your file system should look like initially. Part of that decision making will also include setting up your source or version control in that project. There are two ways to get a project from Git: 1) import an existing project or directory into Git or 2) clone an existing repository from a server. </p>
+            <p>If you have an existing directory wherein your project lies, you need only navigate to that project's directory and issue a <i>$git init</i> command. Doing this creates a subdirectory that contains all the necessary repository files that need needs to operate. Because initiating a repo doesn't track any files off the bat, you'll strill need to commit the files in the your directory or project and push them to your repository. Cloning an existing repository is a little less complicated that creating a new one. A user need only issue a <i>$ git clone</i> command and pass in a url of the remote repository to clone to receive all repository information locally. In the abscent of any other parameters, Git will put this freshly cloned repository into a file named libgit2. Passing a second parameter into the clone function will allow you to pass in where you want git to create the repo.</p>
         </div>
         
         <hr class="featurette-divider">
         
        <!-- Fourth Featurette -->
         <div class="featurette" id="topic4">
-            <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Highlight #4
-                <span class="text-muted">Topic 4 Header</span>
+            <img class="featurette-image img-circle img-responsive pull-left" src="images/tracking.png">
+            <h2 class="featurette-heading">Tracking Files
+                <span class="text-muted"> - Or Not</span>
             </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class="lead">More often than not, project files within software development projects are tracked by a version control system. However, this is not always the case. There are somtimes files within software projects that you don't need to track. VCSs like Git give the user the ability to ignore specified files in order to accomodate the needs of the user in this regard.</p>
+            <p>Tracked and untracked files both have states in which they can exist. Tracked files can be unmodified, modified, or staged while untracked files are any files in your working directory that were not in your last snapshot. Untracked files are also not in your staging area - committed snapshots waiting to be pushed to the repo. When first a repository is cloned, all files are tracekd and unmodified since they came from Git and have not been changed.</p>
         </div>
 
         <hr class="featurette-divider">
 
         <!-- Fifth Featurette -->
         <div class="featurette" id="topic5">
-            <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-            <h2 class="featurette-heading">Highlight #5
-                <span class="text-muted">Topic 5 Header</span>
-            </h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <img class="featurette-image img-circle img-responsive pull-right" src="images/stages.jpg">
+            <h2 class="featurette-heading">Stages of Files</h2>
+            <p class="lead">One of the most important concepts to understand while using Git is the different status or stages in which a file might be placed. Understanding the different statuses of files gives us the ability to utilize the Git VCS to its fullest potential.</p>
+            <p>The three stages of files within a Git repository are committed, modified, and staged. When a file is committed, the data within it is recorded in your local database of files. It is part of the current snapshot of that commit and it will include all of the changes made to files within the repository made after the last commit. When a file is modified, it means the file has been changed from its last snapshot your database has on file, but it has not yet been committed. This is the stage of a file while you are making your updates and changes. It's worth noting that, while a file is in a modified state, the changes which you've made to it since your last commit or since you added the file to the repo are not viewable in your remote repository as they have not been committed or pushed. When a file is staged, it means that you have pushed the modified file in its current version to your next commit snapshot. This means that any other users who are drawing code from your remote repository can now see the modified version of your file and all subsequent meta data therein.</p>
         </div>
 
         <hr class="featurette-divider">
